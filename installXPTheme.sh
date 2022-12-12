@@ -77,7 +77,7 @@ sudo apt-get install palemoon
 
 sudo apt-get install build-essential libgirepository1.0-dev liblightdm-gobject-1-0 liblightdm-gobject-dev libcairo2-dev
 
-sudo curl -fsSL https://deb.nodesource.com/setup_16.x | bash - &&\ apt-get install -y nodejs
+sudo curl -fsSL https://deb.nodesource.com/setup_16.x | sudo apt-get install -y nodejs
 exit
 
 # Cloning nody-greeter repo
