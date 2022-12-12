@@ -91,8 +91,10 @@ npm run rebuild
 npm run build
 sudo node make install
 
-echo "set 'greeter-session=nody-greeter' in /etc/lightdm/lightdm.conf"
-read
+sudo mv /etc/lightdm/lightdm.conf /etc/lightdm/lightdm_edit.conf
+sudo sed 's/greeter-session=example-gtk-gnome/greeter-session=nody-greeter/' /etc/lightdm/lightdm.conf >> lightdm.conf
+sudo mv ./lightdm.conf /etc/lightdm/
+sudo rm /etc/lightdm/lightdm_edit.conf
 
 # Cloning WelcomeXP repo
 
@@ -110,7 +112,7 @@ sudo chmod -R 755 /usr/share/web-greeter/themes/WelcomeXP
 
 sudo mv /etc/lightdm/web-greeter.yml/ /etc/lightdm/web-greeter_edit.yml
 sudo sed 's/theme: gruvbox/theme: WelcomeXP/' /etc/lightdm/web-greeter_edit.yml >> web-greeter.yml
-sudo mv ~/web-greeter.yml /etc/lightdm/
+sudo mv ./web-greeter.yml /etc/lightdm/
 sudo rm /etc/lightdm/web-greeter_edit.yml
 
 # install plymouth juust in case it isnt already
