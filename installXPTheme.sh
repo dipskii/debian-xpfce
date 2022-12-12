@@ -25,7 +25,7 @@ sudo dpkg -i libshllang.deb
 
 # Fix broken file with sed
 
-sed 's/dpkg_architecture/dpkg-architecture/' ./submodules/xfce-winxp-tc-panel/packaging/pack-libxfce4panel-2.0.sh >> /submodules/xfce-winxp-tc-panel/packaging/panel.sh
+sed 's/dpkg_architecture/dpkg-architecture/' ./submodules/xfce-winxp-tc-panel/packaging/pack-libxfce4panel-2.0.sh >> ./submodules/xfce-winxp-tc-panel/packaging/panel.sh
 chmod +x ./submodules/xfce-winxp-tc-panel/packaging/panel.sh
 
 # Installing more debs...
