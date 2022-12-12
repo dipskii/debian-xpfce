@@ -1,6 +1,6 @@
 #!/bin/bash
 # Install dependencies
-sudo apt-get install git fakeroot rename x11-apps cmake gettext g++ pkg-config glib-2.0 gtk+-3.0 xfce4-dev-tools gtk-doc-tools libxfce4util-dev libgarcon-1.0-dev libgarcon-gtk3-1-dev libexo-2-dev libwnck-3-dev dpkg-dev exo-utils libdbusmenu-glib4 libdbusmenu-gtk3-4 libxfce4panel-2.0 ruby-sass xfwm4 libxpresent1 xfce4 xdg-utils thunderbird xfce4-terminal curl npm 
+sudo apt-get install -y git fakeroot rename x11-apps cmake gettext g++ pkg-config glib-2.0 gtk+-3.0 xfce4-dev-tools gtk-doc-tools libxfce4util-dev libgarcon-1.0-dev libgarcon-gtk3-1-dev libexo-2-dev libwnck-3-dev dpkg-dev exo-utils libdbusmenu-glib4 libdbusmenu-gtk3-4 libxfce4panel-2.0 ruby-sass xfwm4 libxpresent1 xfce4 xdg-utils thunderbird xfce4-terminal curl npm 
 
 # Clone repo
 git clone https://github.com/rozniak/xfce-winxp-tc --recurse-submodules
@@ -70,15 +70,16 @@ cd ..
 echo 'deb http://download.opensuse.org/repositories/home:/stevenpusser/Debian_11/ /' | sudo tee /etc/apt/sources.list.d/home:stevenpusser.list
 curl -fsSL https://download.opensuse.org/repositories/home:stevenpusser/Debian_11/Release.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/home_stevenpusser.gpg > /dev/null
 sudo apt-get update
-sudo apt-get install palemoon
+sudo apt-get install -y palemoon
 
 # WelcomeXP Greeter
 # Installing Dependancies
 
-sudo apt-get install build-essential libgirepository1.0-dev liblightdm-gobject-1-0 liblightdm-gobject-dev libcairo2-dev
+sudo apt-get install -y build-essential libgirepository1.0-dev liblightdm-gobject-1-0 liblightdm-gobject-dev libcairo2-dev
 
-sudo curl -fsSL https://deb.nodesource.com/setup_16.x | sudo apt-get install -y nodejs
-exit
+sudo curl -fsSL https://deb.nodesource.com/setup_16.x >> ./nodejs16.sh
+sudo ./nodejs.sh
+sudo apt-get install -y nodejs
 
 # Cloning nody-greeter repo
 
@@ -114,7 +115,7 @@ sudo rm /etc/lightdm/web-greeter_edit.yml
 
 # install plymouth juust in case it isnt already
 
-sudo apt-get install plymouth
+sudo apt-get install -y plymouth
 
 # Cloning very epic plymouth theme
 
