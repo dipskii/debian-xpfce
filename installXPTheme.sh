@@ -1,6 +1,6 @@
 #!/bin/bash
 # Install dependencies
-sudo apt-get install -y git fakeroot rename x11-apps cmake gettext g++ pkg-config glib-2.0 gtk+-3.0 xfce4-dev-tools gtk-doc-tools libxfce4util-dev libgarcon-1.0-dev libgarcon-gtk3-1-dev libexo-2-dev libwnck-3-dev dpkg-dev exo-utils libdbusmenu-glib4 libdbusmenu-gtk3-4 libxfce4panel-2.0 ruby-sass xfwm4 libxpresent1 xfce4 xdg-utils thunderbird xfce4-terminal curl npm 
+sudo apt-get install -y git fakeroot rename x11-apps cmake gettext g++ pkg-config glib-2.0 gtk+-3.0 xfce4-dev-tools gtk-doc-tools libxfce4util-dev libgarcon-1.0-dev libgarcon-gtk3-1-dev libexo-2-dev libwnck-3-dev dpkg-dev exo-utils libdbusmenu-glib4 libdbusmenu-gtk3-4 libxfce4panel-2.0 ruby-sass xfwm4 libxpresent1 xfce4 xdg-utils thunderbird xfce4-terminal curl npm dbus-x11 
 
 # Clone repo
 git clone https://github.com/rozniak/xfce-winxp-tc --recurse-submodules
