@@ -6,30 +6,24 @@ sudo apt-get install -y git fakeroot rename x11-apps cmake gettext g++ pkg-confi
 git clone https://github.com/rozniak/xfce-winxp-tc --recurse-submodules
 cd ./xfce-winxp-tc/
 
-# Build and install stuff from ./packaging
-
+# Build stuff from ./packaging
 ./packaging/deb/cursors/packcurs.sh with-shadow/standard
-sudo dpkg -i cursor-theme-with-shadow-standard.deb
-
 ./packaging/deb/fonts/packfnts.sh
-sudo dpkg -i wintc-fonts-xp.deb
+sudo dpkg -i cursor-theme-with-shadow-standard.deb wintc-fonts-xp.deb
 
+# Installing these one at a time, they depend on each other
 ./packaging/deb/libs/packlibs.sh comgtk
 sudo dpkg -i libcomgtk.deb
-
 ./packaging/deb/libs/packlibs.sh exec
 sudo dpkg -i libexec.deb
-
 ./packaging/deb/libs/packlibs.sh shllang
 sudo dpkg -i libshllang.deb
 
 # Fix broken file with sed
-
 sed 's/dpkg_architecture/dpkg-architecture/' ./submodules/xfce-winxp-tc-panel/packaging/pack-libxfce4panel-2.0.sh >> ./submodules/xfce-winxp-tc-panel/packaging/panel.sh
 chmod +x ./submodules/xfce-winxp-tc-panel/packaging/panel.sh
 
 # Installing more debs...
-
 ./submodules/xfce-winxp-tc-panel/packaging/panel.sh
 sudo dpkg -i libxfce4panel-2.0-4.deb
 
@@ -37,13 +31,9 @@ sudo dpkg -i libxfce4panel-2.0-4.deb
 sudo dpkg -i xfce4-panel.deb
 
 ./packaging/deb/panel/packplug.sh shell/start shell/systray
-sudo dpkg -i shell-start-plugin.deb shell-systray-plugin.deb
-
 ./packaging/deb/programs/packprog.sh shell/run shell/winver
-sudo dpkg -i shell-winver.deb shell-run.deb
-
 ./packaging/deb/sounds/packsnds.sh
-sudo dpkg -i wintc-sound-theme-xp.deb
+sudo dpkg -i shell-start-plugin.deb shell-systray-plugin.deb shell-winver.deb shell-run.deb wintc-sound-theme-xp.deb
 
 # Checking out feat-13 for the other themes
 
